@@ -76,7 +76,6 @@ const dare = JSON.parse(fs.readFileSync('./data/fakta.json'));
 //--Setting
 prefix = up.prefix
 //const limitawal = up.limit;
-const memberlimit = up.memberlimit;
 const cr = up.cr;
 //const hargalimit = up.hargalimit;
 const NamaBot = up.NamaBot;
@@ -504,23 +503,7 @@ addKoinUser(sender, uangsaku)
 console.error(err)
   }
 }
-*/
 
-//--Member limit
-if (isGroup) {
-  try {
-const getmemex = groupMembers.length
-if (getmemex <= memberlimit) {
-  Lxa.sendMessage(from, `Los miembros de este grupo son insuficientes ${memberlimit}, para usar este bot`, text)
-
-  setTimeout(() => {
-Lxa.groupLeave(from) // ur cods
-  }, 5000) // 1000 = 1s,
-}
-  } catch {
-console.error(err)
-  }
-}
 
 
 //--Other Function
@@ -556,7 +539,6 @@ Lxa.sendMessage(from, buf, audio, {
 })
 break
 
-case '#menu':
 case '#help':
 case '!help':
 case '!menu':
@@ -596,8 +578,6 @@ Hola *${pushname}*
 ┃━━━━━━━━━━━━━━━━━━━━
 ┠⊷️ *${prefix}Info*
 ┃ _Información del bot_
-┠⊷️ *${prefix}Owner*
-┃ _Dueño del bot_
 ┠⊷️ *${prefix}Ping*
 ┃ _Velocidad_
 ┗━━━━━━━━━━━━━━━━━━━━
